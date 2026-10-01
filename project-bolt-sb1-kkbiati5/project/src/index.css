@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-950 text-white;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .left-5\.5 {
+    left: 1.375rem;
+  }
+
+  /* Custom scrollbar for tables */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 4px;
+  }
+  .overflow-x-auto::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded-full;
+  }
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
+}
