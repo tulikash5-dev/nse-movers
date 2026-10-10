@@ -86,7 +86,7 @@ export const DEFAULT_VOLUME_SETTINGS: VolumeScannerSettings = {
   atrPeriod: 14,
   bollingerPeriod: 20,
   bollingerStdDev: 2,
-  minAvgDailyVolume: 5_000_000,
+  minAvgDailyVolume: 10_000_000,
   volumeRatioThreshold: 1.0,
   rsiOverbought: 70,
   rsiOversold: 30,

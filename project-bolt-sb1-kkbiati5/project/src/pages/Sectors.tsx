@@ -295,7 +295,11 @@ export default function Sectors() {
   }, [activeGroup, loadData]);
 
   const filteredAndSorted = useMemo(() => {
-    const stocks = Array.from(stockData.values()).filter((s) => !s.loading && s.candles.length > 0);
+    const stocks = Array.from(stockData.values()).filter((s) => {
+      if (s.loading || s.candles.length === 0) return false;
+      const avgVol = s.candles.slice(-20).reduce((sum, c) => sum + c.volume, 0) / Math.min(20, s.candles.length);
+      return avgVol >= 10_000_000;
+    });
     let result = stocks;
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
@@ -336,7 +340,11 @@ export default function Sectors() {
   }, [stockData, searchQuery, sortKey, sortDir]);
 
   const sectorStats = useMemo(() => {
-    const stocks = Array.from(stockData.values()).filter((s) => !s.loading && s.candles.length > 0);
+    const stocks = Array.from(stockData.values()).filter((s) => {
+      if (s.loading || s.candles.length === 0) return false;
+      const avgVol = s.candles.slice(-20).reduce((sum, c) => sum + c.volume, 0) / Math.min(20, s.candles.length);
+      return avgVol >= 10_000_000;
+    });
     if (stocks.length === 0) return null;
     const gains = stocks.filter((s) => {
       const last = s.candles[s.candles.length - 1].close;

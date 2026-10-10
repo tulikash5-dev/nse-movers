@@ -18,3 +18,12 @@ verify_jwt = false
 
 [functions.verify-trade-targets]
 verify_jwt = false
+
+[functions.run-eod-scan]
+verify_jwt = false
+
+[functions.oi-flow-scan]
+verify_jwt = false
+
+[functions.s1-scanner]
+verify_jwt = false

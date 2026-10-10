@@ -12,6 +12,9 @@ import IpoAnalysis from "./pages/IpoAnalysis";
 import VolumeFinder from "./pages/VolumeFinder";
 import StocksToTrade from "./pages/StocksToTrade";
 import Sectors from "./pages/Sectors";
+import EodDashboard from "./pages/EodDashboard";
+import OiFlowIntelligence from "./pages/OiFlowIntelligence";
+import S1Scanner from "./pages/S1Scanner";
 
 export default function App() {
   return (
@@ -32,6 +35,9 @@ export default function App() {
             <Route path="/volume-finder" element={<VolumeFinder />} />
             <Route path="/trade-today" element={<StocksToTrade />} />
             <Route path="/sectors" element={<Sectors />} />
+            <Route path="/eod" element={<EodDashboard />} />
+            <Route path="/oi-flow" element={<OiFlowIntelligence />} />
+            <Route path="/s1-scanner" element={<S1Scanner />} />
           </Routes>
         </main>
       </div>

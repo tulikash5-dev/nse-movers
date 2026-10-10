@@ -39,12 +39,12 @@ export default function Home() {
   const [showFilters, setShowFilters] = useState(false);
 
   const filteredGainers = useMemo(() =>
-    gainers.filter(s => s.price >= priceMin && s.price <= priceMax && s.pct_change >= pctFilter),
+    gainers.filter(s => s.price >= priceMin && s.price <= priceMax && s.pct_change >= pctFilter && (s.volume ?? 0) >= 10000000),
     [gainers, priceMin, priceMax, pctFilter]
   );
 
   const filteredLosers = useMemo(() =>
-    losers.filter(s => s.price >= priceMin && s.price <= priceMax && s.pct_change <= -pctFilter),
+    losers.filter(s => s.price >= priceMin && s.price <= priceMax && s.pct_change <= -pctFilter && (s.volume ?? 0) >= 10000000),
     [losers, priceMin, priceMax, pctFilter]
   );
 
@@ -285,6 +285,9 @@ export default function Home() {
         </span>
         <span className="text-xs text-slate-500 bg-slate-800 px-2.5 py-2 rounded-lg">
           Change: ±{pctFilter}%+
+        </span>
+        <span className="text-xs text-emerald-400 bg-emerald-900/30 px-2.5 py-2 rounded-lg border border-emerald-800">
+          Volume: ≥1 Cr
         </span>
         {hasActiveFilters && (
           <button

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { TrendingUp, Clock, Settings, BarChart2, Zap, Activity, Radar, FlaskConical, Sparkles, Volume2, Target, Layers } from "lucide-react";
+import { TrendingUp, Clock, Settings, BarChart2, Zap, Activity, Radar, FlaskConical, Sparkles, Volume2, Target, Layers, Rocket, Brain, TrendingDown } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -16,6 +16,20 @@ export default function Navbar() {
 
           <nav className="flex items-center gap-1">
             <NavLink
+              to="/oi-flow"
+              className={({ isActive }) =>
+                `flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-emerald-700 text-white"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                }`
+              }
+            >
+              <Brain size={15} />
+              <span className="hidden sm:inline">OI Flow</span>
+            </NavLink>
+
+            <NavLink
               to="/"
               end
               className={({ isActive }) =>
@@ -28,6 +42,34 @@ export default function Navbar() {
             >
               <TrendingUp size={15} />
               <span className="hidden sm:inline">Today</span>
+            </NavLink>
+
+            <NavLink
+              to="/eod"
+              className={({ isActive }) =>
+                `flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-blue-700 text-white"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                }`
+              }
+            >
+              <Rocket size={15} />
+              <span className="hidden sm:inline">EOD Scan</span>
+            </NavLink>
+
+            <NavLink
+              to="/s1-scanner"
+              className={({ isActive }) =>
+                `flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-amber-800 text-white"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                }`
+              }
+            >
+              <TrendingDown size={15} />
+              <span className="hidden sm:inline">S1 Scanner</span>
             </NavLink>
 
             <NavLink
